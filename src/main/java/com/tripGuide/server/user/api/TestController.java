@@ -1,13 +1,13 @@
-package com.tripGuide;
+package com.tripGuide.server.user.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class test {
+public class TestController {
 
-    @GetMapping("/")
+    @GetMapping("hello")
     public String home() {
-        return "<h1>aws-v5</h1>";
+        return "<h1>hihihihi</h1>";
     }
 }

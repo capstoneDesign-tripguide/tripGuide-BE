@@ -29,8 +29,6 @@ spring:
       host: Trip #${REDIS_HOST}
       port: 5312 #${REDIS_PORT}
 
-
-
 # security
 jwt:
   issuer: TRIPGUIDE
