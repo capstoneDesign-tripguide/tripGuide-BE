@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  security:
+    oauth2:
+      kakao:
+        host: https://kapi.kakao.com
+
+  data:
+    redis:
+      host: Trip #${REDIS_HOST}
+      port: 5312 #${REDIS_PORT}
+
+# db 설정
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tripguide?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: gus200916a^^
+
+# security
+jwt:
+  issuer: TRIPGUIDE
+  secret-key: assdf #${JWT_SECRET_KEY}
+  expiry-seconds:
+    access-token: 1800
+    refresh-token: 1209600
