@@ -1,7 +1,17 @@
 server:
-  port: 8080
+  port: 5000
+  servlet:
+    encoding:
+      charset: utf-8
 
 spring:
+  # db 설정
+  datasource:
+    url: jdbc:mysql://${rds.hostname}:${rds.port}/${rds.db.name}?allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${rds.username}
+    password: ${rds.password}
+
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: false
@@ -19,12 +29,7 @@ spring:
       host: Trip #${REDIS_HOST}
       port: 5312 #${REDIS_PORT}
 
-# db 설정
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tripguide?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
-    username: root
-    password: gus200916a^^
+
 
 # security
 jwt:
