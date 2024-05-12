@@ -19,10 +19,10 @@ public class UserController {
     private final UserService userService;
     private final UserFirstService userFirstService;
 
-    @PostMapping
-    public LoginSuccessResponse login(@RequestBody @Valid LoginRequest loginRequest) {
-        return userFirstService.login(loginRequest);
-    }
+//    @PostMapping
+//    public LoginSuccessResponse login(@RequestBody @Valid LoginRequest loginRequest) {
+//        return userFirstService.login(loginRequest);
+//    }
 
 //    @GetMapping("/me")
 //    public UserProfileResponse getMyProfile(@AuthenticationPrincipal JwtAuthentication user) {
