@@ -8,7 +8,7 @@ import com.tripGuide.server.user.service.UserFirstService;
 import com.tripGuide.server.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+//import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/v1/users")
@@ -24,13 +24,13 @@ public class UserController {
         return userFirstService.login(loginRequest);
     }
 
-    @GetMapping("/me")
-    public UserProfileResponse getMyProfile(@AuthenticationPrincipal JwtAuthentication user) {
-        return userService.getUserProfile(user.getId());
-    }
-
-    @DeleteMapping("/me")
-    public void deleteUser(@AuthenticationPrincipal JwtAuthentication user) {
-        userFirstService.delete(user.getId());
-    }
+//    @GetMapping("/me")
+//    public UserProfileResponse getMyProfile(@AuthenticationPrincipal JwtAuthentication user) {
+//        return userService.getUserProfile(user.getId());
+//    }
+//
+//    @DeleteMapping("/me")
+//    public void deleteUser(@AuthenticationPrincipal JwtAuthentication user) {
+//        userFirstService.delete(user.getId());
+//    }
 }
