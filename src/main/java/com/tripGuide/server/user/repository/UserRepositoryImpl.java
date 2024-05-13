@@ -13,14 +13,15 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepsitoryCustom{
 
-    private final EntityManager em;
+//    private final EntityManager em;
 
     public Optional<User> findByUserIdByProviderAndOauthId(String provider, String oauthId) {
-        String jpql = "SELECT u FROM User u WHERE u.provider = :provider AND u.oauthId = :oauthId";
-        TypedQuery<User> query = em.createQuery(jpql, User.class);
-        query.setParameter("provider", provider);
-        query.setParameter("oauthId", oauthId);
-        return Optional.ofNullable(query.getSingleResult());
+//        String jpql = "SELECT u FROM User u WHERE u.provider = :provider AND u.oauthId = :oauthId";
+//        TypedQuery<User> query = em.createQuery(jpql, User.class);
+//        query.setParameter("provider", provider);
+//        query.setParameter("oauthId", oauthId);
+//        return Optional.ofNullable(query.getSingleResult());
+        return Optional.of(User.of("asd","asd","asd","asd","asd"));
     }
 
 }
