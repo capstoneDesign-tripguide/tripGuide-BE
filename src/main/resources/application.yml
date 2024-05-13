@@ -14,7 +14,7 @@ spring:
 
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
-    open-in-view: false
+    open-in-view: true
     show-sql: true
     hibernate:
       ddl-auto: update
