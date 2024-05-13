@@ -5,7 +5,6 @@ import com.tripGuide.server.commons.security.oauth.dto.OAuthUserDataResponse;
 import com.tripGuide.server.commons.security.oauth.dto.OAuthUserInfo;
 import com.tripGuide.server.commons.security.oauth.service.OAuthService;
 import com.tripGuide.server.commons.security.token.dto.Tokens;
-//import com.tripGuide.server.commons.security.token.service.TokenService;
 import com.tripGuide.server.commons.security.token.service.TokenService;
 import com.tripGuide.server.user.api.request.LoginRequest;
 import com.tripGuide.server.user.api.response.LoginSuccessResponse;

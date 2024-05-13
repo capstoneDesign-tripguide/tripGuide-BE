@@ -9,8 +9,6 @@ import com.tripGuide.server.user.api.response.UserProfileResponse;
 import com.tripGuide.server.user.entity.User;
 import com.tripGuide.server.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.util.CustomObjectInputStream;
-import org.hibernate.annotations.NotFound;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
