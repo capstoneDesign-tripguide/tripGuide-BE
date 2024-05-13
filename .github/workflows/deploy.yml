@@ -17,13 +17,6 @@ jobs:
           distribution: 'zulu'
       - name: Pemission
         run: chmod +x ./gradlew
-      - name: Setup MYSQL
-        uses: samin/mysql-action@v1
-        with:
-          character set server: 'utf8'
-          mysql database: ${rds.db.name}
-          mysql user: ${rds.username}
-          mysql password: ${rds.password}
       - name: Build with Gradle
         run: ./gradlew clean build
 
