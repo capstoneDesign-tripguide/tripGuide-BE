@@ -1,0 +1,33 @@
+server:
+  port: 5000
+  servlet:
+    encoding:
+      charset: utf-8
+
+spring:
+  # db 설정
+  datasource:
+    url: jdbc:mysql://localhost:3306/tripguide?allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: garam
+    password: garam1234
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+  security:
+    oauth2:
+      kakao:
+        host: https://kapi.kakao.com
+
+# security
+jwt:
+  issuer: TRIPGUIDE
+  secret-key: assdf #${JWT_SECRET_KEY}
+  expiry-seconds:
+    access-token: 1800
+    refresh-token: 1209600

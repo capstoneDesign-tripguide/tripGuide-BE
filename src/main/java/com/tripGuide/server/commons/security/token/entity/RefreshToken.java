@@ -1,16 +1,17 @@
 package com.tripGuide.server.commons.security.token.entity;
 
+import com.tripGuide.server.commons.domain.TimeBaseEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import java.io.Serializable;
 
-
+@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class RefreshToken implements Serializable {
+public class RefreshToken extends TimeBaseEntity {
 
     @Id
     private Long userId;
