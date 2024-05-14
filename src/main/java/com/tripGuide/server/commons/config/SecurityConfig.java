@@ -22,18 +22,26 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .rememberMe(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable)
-                .formLogin(AbstractHttpConfigurer::disable)
-                .anonymous(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> {
-                    auth.anyRequest().permitAll();
-                })
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(jwtExceptionFilter, JwtAuthenticationFilter.class)
-                .build();
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+
+        http.authorizeRequests()
+                .antMatchers("/members/**").access("hasRole('ADMIN') or hasRole('MEMBER')")
+                .antMatchers("/admin/**").access("hasRole('ADMIN')")
+                .antMatchers("/static/css/**").permitAll()
+                .antMatchers("/static/js/**").permitAll()
+                .antMatchers("/static/file/**").permitAll()
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/require-login")
+                .loginProcessingUrl("/login")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
+                .exceptionHandling().accessDeniedPage("/fail-authorize");
+
+        return http.build();
     }
 }
