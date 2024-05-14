@@ -6,7 +6,7 @@ import com.tripGuide.server.user.api.response.LoginSuccessResponse;
 import com.tripGuide.server.user.api.response.UserProfileResponse;
 import com.tripGuide.server.user.service.UserFirstService;
 import com.tripGuide.server.user.service.UserService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
