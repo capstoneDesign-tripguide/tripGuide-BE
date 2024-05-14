@@ -4,6 +4,7 @@ server:
     encoding:
       charset: utf-8
 
+
 spring:
   # db 설정
   datasource:
