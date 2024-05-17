@@ -26,12 +26,13 @@ public class SecurityConfig {
         http.csrf().disable();
 
         http.authorizeRequests()
+                .antMatchers("/actuator/health").permitAll()
                 .antMatchers("/members/**").access("hasRole('ADMIN') or hasRole('MEMBER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .antMatchers("/static/css/**").permitAll()
                 .antMatchers("/static/js/**").permitAll()
                 .antMatchers("/static/file/**").permitAll()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/require-login")
