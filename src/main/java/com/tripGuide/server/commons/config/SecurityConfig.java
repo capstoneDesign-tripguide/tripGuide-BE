@@ -26,7 +26,7 @@ public class SecurityConfig {
         http.csrf().disable();
 
         http.authorizeRequests()
-                .antMatchers("/actuator/health").permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/members/**").access("hasRole('ADMIN') or hasRole('MEMBER')")
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .antMatchers("/static/css/**").permitAll()
