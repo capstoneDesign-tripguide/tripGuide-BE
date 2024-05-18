@@ -21,6 +21,14 @@ spring:
       kakao:
         host: https://kapi.kakao.com
 
+# actuator 관리
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: env, beans
+
 # security
 jwt:
   issuer: TRIPGUIDE
