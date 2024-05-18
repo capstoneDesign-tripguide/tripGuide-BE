@@ -23,26 +23,19 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+        http
+                .httpBasic().disable()
+                .csrf().disable()
+                .formLogin().disable()
+                .authorizeRequests()
+                .antMatchers("/", "/actuator/**", "/favicon.ico", "/h2-console/**").permitAll()
+                .antMatchers("/api/v1/users").permitAll()
+                .antMatchers("/api/v1/tokens").permitAll()
+                .anyRequest().authenticated();
 
-        http.authorizeRequests()
-                .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/members/**").access("hasRole('ADMIN') or hasRole('MEMBER')")
-                .antMatchers("/admin/**").access("hasRole('ADMIN')")
-                .antMatchers("/static/css/**").permitAll()
-                .antMatchers("/static/js/**").permitAll()
-                .antMatchers("/static/file/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/require-login")
-                .loginProcessingUrl("/login")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/")
-                .and()
-                .exceptionHandling().accessDeniedPage("/fail-authorize");
-
-        return http.build();
+        return http
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtExceptionFilter, JwtAuthenticationFilter.class)
+                .build();
     }
 }
