@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .formLogin().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/actuator/**", "/favicon.ico", "/h2-console/**").permitAll()
+                .antMatchers("/api/v1/hello").permitAll()
                 .antMatchers("/api/v1/users").permitAll()
                 .antMatchers("/api/v1/tokens").permitAll()
                 .anyRequest().authenticated();
