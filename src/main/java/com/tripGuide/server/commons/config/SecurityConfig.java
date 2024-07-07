@@ -24,15 +24,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .httpBasic().disable()
+//                .httpBasic().disable()
                 .csrf().disable()
                 .formLogin().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/actuator/**", "/favicon.ico", "/h2-console/**").permitAll()
-                .antMatchers("/api/v1/hello").permitAll()
-                .antMatchers("/api/v1/users").permitAll()
-                .antMatchers("/api/v1/tokens").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
+//                .antMatchers("/", "/actuator/**", "/favicon.ico", "/h2-console/**").permitAll()
+//                .antMatchers("/api/v1/hello").permitAll()
+//                .antMatchers("/api/v1/users").permitAll()
+//                .antMatchers("/api/v1/tokens").permitAll()
+//                .anyRequest().authenticated();
 
         return http
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
