@@ -10,11 +10,25 @@ spring:
       enabled: true
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: true
-    show-sql: true
     hibernate:
       ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      '[hibernate.format_sql]': true
+
+  output:
+    ansi:
+      enabled: always
+
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#    open-in-view: true
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
 
   security:
     oauth2:

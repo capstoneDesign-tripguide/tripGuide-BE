@@ -21,6 +21,10 @@ repositories {
 }
 
 dependencies {
+	// android + deepl
+	implementation group: 'com.deepl.api', name: 'deepl-java', version: '1.5.0'
+	implementation 'com.vaadin.external.google:android-json:0.0.20131108.vaadin1'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
@@ -42,6 +46,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
 
+	// actuator + prometheus
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 

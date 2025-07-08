@@ -46,6 +46,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return extractToken(authHeaderValue);
         }
 
+
         return null;
     }
 
