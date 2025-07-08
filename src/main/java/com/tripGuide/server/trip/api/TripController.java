@@ -14,8 +14,6 @@ import java.util.Map;
 @RestController
 public class TripController {
 
-    private final TripService tripService;
-
     @PostMapping("/plan")
     public Map<String, String> makePlan(@RequestBody PlanDto planDto) throws JSONException, IOException {
         String makedPlan = tripService.makePlan(planDto);
