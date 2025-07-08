@@ -1,5 +1,7 @@
 package com.tripGuide.server.trip.api;
 
+import com.tripGuide.server.trip.api.request.PlanDto;
+import com.tripGuide.server.trip.service.TripService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 public class TripController {
+
+    private final TripService tripService;
 
     @PostMapping("/plan")
     public Map<String, String> makePlan(@RequestBody PlanDto planDto) throws JSONException, IOException {
